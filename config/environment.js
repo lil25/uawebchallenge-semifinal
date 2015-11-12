@@ -18,6 +18,15 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+    
+  ENV.contentSecurityPolicy = {
+    'connect-src': "'self'",
+    'default-src': "'self'",
+    'script-src': "'self' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com",
+    'style-src': "'self' 'unsafe-inline' https://*.googleapis.com",
+    'font-src': "'self' https://*.gstatic.com",
+    'img-src': "'self' data: https://*.googleapis.com https://*.gstatic.com"
+  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

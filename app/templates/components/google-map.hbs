@@ -1,0 +1,168 @@
+<div class="map-header-sidebar__learn-more-wrap hide">Детальніше
+    <button class="map-header-sidebar__curtail-route-button" {{action 'hideDetails'}}><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="24.062" height="23.34" viewBox="0 0 24.062 23.34">
+  <path d="M24.052,1.410 L13.445,12.017 L23.345,21.916 L21.930,23.331 L12.031,13.431 L2.131,23.331 L0.717,21.916 L10.617,12.017 L0.010,1.410 L1.424,-0.004 L12.031,10.603 L22.637,-0.004 L24.052,1.410 Z"/>
+</svg>
+
+    </button>
+</div>
+    <div id="left-sidebar" class="left-sidebar {{unless isPanelOpened 'hide-left-sidebar'}}">
+      <button class="scrool-to to-map-scroll">До карти</button>
+      <div class="left-sidebar__inner">
+          {{#route-list}}
+              <section class="left-sidebar__block">
+          <div class="route-build-block">
+            <div class="route-build-block__line route-build-block__head-line">
+              <div class="route-build-block__line-left"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="17" height="30" viewBox="0 0 17 30">
+                  <defs>
+                    <style>
+                      .route-icon-cls-1 {
+                        /*filter: url(#color-overlay-1);*/
+                      }
+
+                      .route-icon-cls-2 {
+                        fill: #4bc382;
+                        fill-opacity: 0;
+                      }
+
+                      .route-icon-cls-2, .route-icon-cls-3 {
+                        stroke: #4bc382;
+                        stroke-linejoin: round;
+                        stroke-width: 2px;
+                      }
+
+                      .route-icon-cls-3 {
+                        stroke-linecap: round;
+                        fill: none;
+                        fill-rule: evenodd;
+                      }
+                    </style>
+
+                    <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
+                      <feFlood flood-color="#4bc382"/>
+                      <feComposite operator="in" in2="SourceGraphic"/>
+                      <feBlend in2="SourceGraphic" result="solidFill"/>
+                    </filter>
+                  </defs>
+                  <g class="route-icon-cls-1">
+                    <circle cx="11.5" cy="24.5" r="4.5" class="route-icon-cls-2"/>
+                    <circle cx="5.5" cy="5.5" r="4.5" class="route-icon-cls-2"/>
+                    <path d="M11.000,5.000 C11.000,5.000 15.000,4.750 15.000,9.000 C15.000,13.287 2.000,14.647 2.000,20.000 C2.000,24.567 6.000,24.000 6.000,24.000 " class="route-icon-cls-3"/>
+                  </g>
+                </svg>
+
+              </div>
+              <div class="route-build-block__line-right">
+                <button class="route-build-block__close-route-button" {{action 'hidePanel'}}><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="24.062" height="23.34" viewBox="0 0 24.062 23.34">
+  <path d="M24.052,1.410 L13.445,12.017 L23.345,21.916 L21.930,23.331 L12.031,13.431 L2.131,23.331 L0.717,21.916 L10.617,12.017 L0.010,1.410 L1.424,-0.004 L12.031,10.603 L22.637,-0.004 L24.052,1.410 Z"/>
+</svg>
+
+                </button>
+              </div>
+              <div class="route-build-block__line-midle">
+                <h2>Маршрути</h2>
+              </div>
+            </div>
+            <div class="route-build-block__line route-points-list-wrap">
+                {{#if startingAddress}}
+                  <div class="route-build-block__line-right">
+                    <button class="route-build-block__close-route-points-button" {{action 'clearMap'}}><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="24.062" height="23.34" viewBox="0 0 24.062 23.34">
+      <path d="M24.052,1.410 L13.445,12.017 L23.345,21.916 L21.930,23.331 L12.031,13.431 L2.131,23.331 L0.717,21.916 L10.617,12.017 L0.010,1.410 L1.424,-0.004 L12.031,10.603 L22.637,-0.004 L24.052,1.410 Z"/>
+    </svg>
+
+                    </button>
+                  </div>
+                {{/if}}
+              <ul class="route-build-block__route-points-list">
+                <li><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="17" height="17" viewBox="0 0 17 17">
+                      <defs>
+                        <style>
+                          .point-icon-cls-1 {
+                            fill: #fff;
+                            stroke: #4bc382;
+                            stroke-linejoin: round;
+                            stroke-width: 2px;
+                          }
+
+                          .point-icon-cls-2 {
+                            fill: #4bc382;
+                          }
+                        </style>
+                      </defs>
+                      <g>
+                        <circle cx="8.5" cy="8.5" r="7.5" class="point-icon-cls-1"/>
+                        <circle cx="8.5" cy="8.5" r="2.5" class="point-icon-cls-2"/>
+                      </g>
+                    </svg>
+                    {{startingAddress}}
+                </li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="17" height="17" viewBox="0 0 17 17">
+                      <defs>
+                        <style>
+                          .point-icon-cls-1 {
+                            fill: #fff;
+                            stroke: #4bc382;
+                            stroke-linejoin: round;
+                            stroke-width: 2px;
+                          }
+
+                          .point-icon-cls-2 {
+                            fill: #4bc382;
+                          }
+                        </style>
+                      </defs>
+                      <g>
+                        <circle cx="8.5" cy="8.5" r="7.5" class="point-icon-cls-1"/>
+                        <circle cx="8.5" cy="8.5" r="2.5" class="point-icon-cls-2"/>
+                      </g>
+                    </svg>
+                    {{destinationAddress}}
+                </li>
+              </ul>
+                
+                <div class="route-build-block__line">
+                    <div class="route-build-block__line-left">
+                      <button class="route-build-block__reverse-route" tabindex="3" {{action 'reverseRoute'}}>Зворотнiй маршрут</button>
+                    </div>
+                </div>
+                
+            </div>
+          </div>
+        </section>
+          
+              {{#each routeDataArr as |route index|}}
+                {{route-description
+                    routeData=route
+                    index=index
+                    toggleRoute="toggleRoute"
+                    toggleMarkers="toggleMarkers"
+                    showDetails="showDetails"
+                }}
+              {{/each}}
+            
+                <div class="left-sidebar__block">
+                  <div class="left-sidebar__instuction-block">
+                    <ul>
+                      <li class="line-markup line-markup-green">Найбезпечніший маршрут</li>
+                      <li class="line-markup line-markup-yellow">Маршрут середнього рівня безпеки </li>
+                      <li class="line-markup line-markup-red">Небезпечний маршрут</li>
+                    </ul>
+                  </div>
+                </div>
+          
+                {{route-details routeDetails=routeDetails}}
+          {{/route-list}}
+          
+        
+          
+          
+        
+      </div>
+    </div>
+
+<div class="map-wrap no-left-indent">
+  <div class="map-wrap__inner">
+      <div class="map jsMap"></div>
+  </div>
+</div>
+
+{{yield}}

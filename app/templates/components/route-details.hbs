@@ -1,0 +1,13 @@
+
+                <section class="deployed-route hide">
+          <h2 class="deployed-route__header">{{routeDetails.start_address}}</h2>
+          <div class="deployed-route__points-wrap">
+              {{#each routeDetails.steps as |step|}}
+                {{route-details-step step=step}}
+              {{/each}}
+          </div>
+          <div class="deployed-route__total-distance">{{routeDetails.distance}}</div>
+          <h2 class="deployed-route__header">{{routeDetails.end_address}}</h2>
+        </section>
+
+{{yield}}

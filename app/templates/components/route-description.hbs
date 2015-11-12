@@ -1,0 +1,30 @@
+  <div class="route-block route-block-{{routeStatusColor}}">
+    <div class="route-block__line">
+      <div class="route-block__right-side-content-wrap">
+        <!--input type="checkbox" id="route{{index}}" title="Set route {{index}}" checked="checked"-->
+        {{input type="checkbox" name="isRouteVisible" checked=isRouteVisible}}
+        <label title="Показати цей маршрут" class="route-block__checkbox-label" {{action 'toggleRoute'}}></label>
+      </div>
+      <h2 class="route-block__header line-markup line-markup-{{routeStatusColor}}">{{routeData.summary}}</h2>
+      <p><strong>{{routeData.distance}}</strong> {{routeData.duration}}</p>
+    </div>
+    <div class="route-block__line route-block__more-details-wrap">
+      <button class="route-block__more-details-button" {{action 'showDetails'}}>Детальніше</button>
+    </div>
+    <div class="route-block__line">
+      <div class="route-block__right-side-content-wrap">
+        <button class="route-block__hide-accident-button" {{action 'toggleMarkers'}}>{{if isMarkersVisible 'сховати ДТП' 'показати ДТП'}}</button>
+      </div>
+      <p class="route-block__accident-murkup"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="21" height="21" viewBox="0 0 21 21">
+<g>
+<circle cx="10.5" cy="10.5" r="10.5" class="accident-icon-circle"/>
+<image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAwFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAAADHcBeAAAAPnRSTlMAH7KLk14n2Wh84uSN6URLha/4IuZWrWH1GMW3dp3cbceOwFTuCslA0xu6HIIxYsr9cCDOGr6ZtvmeeiHaNklNCIsAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAdElEQVQI1z2NRxKCAAADV8HesaFib9g7Kmj+/ywZUPe0OSQBSCQNM0VMOpPNGflCMfJSuVKtWZIJ9UaTVttWpyvoOdDXYDiSxkxgqhlzSRYLlnJZab3Z7tgfjjqddYmXpaur2/fG0/1h8+MZdv1/CrzXO5IPlTUNTbgVhUMAAAAASUVORK5CYII=" x="5" y="5" width="12" height="12"/>
+</g>
+</svg>
+          За рік <strong>{{routeData.accidents.length}} </strong>аварії{{#if totalWounded}}, <strong>{{totalWounded}} </strong>постраждалих{{/if}}{{#if totalDeceased}}, <strong>{{totalDeceased}} </strong>загиблих{{/if}}
+      </p>
+    </div>
+  </div>
+
+
+{{yield}}

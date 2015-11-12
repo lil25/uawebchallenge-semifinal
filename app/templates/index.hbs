@@ -1,0 +1,37 @@
+    <div class="main-page">
+      <div class="main-background">
+        <div class="main-background__inner-wrap"><img src="/img/main-page-bg-img.jpg" alt="Header background image"></div>
+      </div>
+      <section class="main-content">
+        <p>Кожного року кількість ДТП в Києві збільшується.</p>
+        <p>За 2015 рік <strong>116 </strong>людей загинуло, <strong>1862 </strong>постраждало.</p>
+        <h1 class="main-content__header">Оберіть безпечний маршрут</h1>
+        <div class="search-route-form">
+          <div class="search-route-form__top-line">
+            <!--input type="text" placeholder="Адреса відправлення" title="Введіть адресу відправлення" tabindex="1" required class="search-route-form__starting-point"-->
+            <!--input type="text" placeholder="Місце призначення" title="Введіть місце призначення" tabindex="2" required class="search-route-form__destination-point"-->
+              {{#address-autocomplete
+                inputClass="search-route-form__starting-point"
+                selectItem="startingPointSelected"
+                placeHolderText="Адреса відправлення"
+                noMesssagePlaceHolderText="Нiчого не знайдено" as |result|}}
+                    <p><b>{{result.address}}</b></p>
+              {{/address-autocomplete}}
+              
+              {{#address-autocomplete
+                inputClass="search-route-form__destination-point"
+                selectItem="destinationPointSelected"
+                placeHolderText="Місце призначення"
+                noMesssagePlaceHolderText="Нiчого не знайдено" as |result|}}
+                    <p><b>{{result.address}}</b></p>
+              {{/address-autocomplete}}
+          </div>
+          <div class="search-route-form__bot-line">
+              <button class="search-route-form__submit-button {{if isDisabled 'disabled'}}" {{action 'showRoute'}}>Показати маршрут</button>
+          </div>
+        </div>
+        <p class="link-article">або прокладіть маршрут<br>{{#link-to 'map'}}на мапі{{/link-to}}</p>
+      </section>
+    </div>
+
+{{outlet}}
